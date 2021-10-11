@@ -1,4 +1,10 @@
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'CloudPixy Dev/Test (43c94715-3610-43b9-92de-a678abb5681f)'
+    appType: 'webApp'
+    WebAppName: 'testappcdd'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core

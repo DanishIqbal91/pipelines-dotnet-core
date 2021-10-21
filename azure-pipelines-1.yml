@@ -23,16 +23,21 @@ steps:
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
-- task: PublishBuildArtifacts@1
-  displayName: 'publish artifacts'
+0  displayName: 'publish artifacts'
 # ASP.NET Core
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
 - task: AzureRmWebAppDeployment@4
   inputs:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webApp'
+    WebAppName: 
+    packageForLinux: 'Drop'
     ConnectionType: 'AzureRM'
     azureSubscription: 'CloudPixy Dev/Test (43c94715-3610-43b9-92de-a678abb5681f)'
-    appType: 'webApp'
+    appType: '0'
     WebAppName: 'frankdemo4243467'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
